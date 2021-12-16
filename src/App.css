@@ -1,38 +1,218 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,700;1,500&display=swap");
+:root {
+  --white: #ffffff;
+  --black: #000000;
+  --dark: #232830;
+  --h1-color: #33ff00;
+  --sm: 14px;
+  --md: 16px;
+  --lg: 18px;
+}
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+}
 .App {
+  width: 100%;
+  height: 100vh;
+}
+
+.background-img {
+  top: 0%;
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  z-index: 1;
+}
+.header {
+  position: relative;
+  z-index: 2;
+  background-color: var(--dark);
+  opacity: 0.8;
+  color: white;
+  width: 500px;
+  margin-left: 50px;
+  padding: 20px;
+  border-radius: 12px;
+  border: 1px solid var(--h1-color);
+  margin-top: 100px;
+}
+.header h1 {
+  color: var(--h1-color);
+  font-size: 22px;
+  font-weight: bold;
   text-align: center;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.header p {
+  font-size: var(--md);
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.header div{
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.header img{
+  width: 20px;
+  margin-right: 12px;
+}
+.cards {
+  position: relative;
+  z-index: 2;
+  background-color: var(--dark);
+  width: 100%;
+  margin-top: 200px;
+  opacity: 0.9;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  border-top: 1px solid var(--h1-color);
+}
+.cards h2 {
+  text-align: center;
+  font-weight: bold;
+  color: var(--white);
+  padding-top: 20px;
+}
+.cards-container{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  opacity: none;
+}
+.cards-render {
+  position: relative;
+  z-index: 2;
+  margin-bottom: 30px;
+  -webkit-box-shadow: 5px 5px 15px 5px rgba(0, 255, 21, 0.41); 
+  box-shadow: 5px 5px 15px 5px rgba(0, 255, 21, 0.41);
+  border-radius: 12px 12px 0 0;
+  overflow: hidden;
+  width: 270px;
+}
+.cards-render img{
+  width: 100%;
+  height: 200px;
+}
+.cards-render h3{
+  font-weight: bold;
   color: white;
+  padding-left: 10px;
+  text-align: center;
+}
+.cards-render a{
+  color:aqua;
+  text-align: center;
+  text-decoration: none;
+  font-weight: bold;
+  width: 100%;
+    display: block;
+    margin-top: 25px;
+    margin-bottom: 20px;
+}
+.cards-render p{
+  color:white;
+  text-align: end;
+  padding-right: 10px;
+}
+.cards-render span{
+  color: var(--h1-color);
+  font-weight: 700;
+}
+.cards-render .status{
+  font-weight: bold;
+  font-size: var(--lg);
+  position: absolute;
+  top:0;
+  left: 10px;
+  background-color: var(--dark);
+  border-radius: 12px;
+  padding: 6px;
+}
+.gender{
+  font-weight: bold;
+  font-size: var(--lg);
+  position: absolute;
+  top:0;
+  right: 10px;
+  background-color: var(--dark);
+  border-radius: 12px;
+  padding: 6px;
+}
+.cards-render .Alive{
+  color:var(--h1-color);
+}
+.cards-render .Dead{
+  color:red;
+}
+.cards-render .unknown{
+  color:blue;
+  font-weight: bold;
+}
+.cards-render .Male{
+  color:aqua;
+  font-weight: bold;
+}
+.cards-render .Female{
+  color:pink;
+  font-weight: bold;
+}
+.card-options{
+  display: flex;
+  flex-wrap: wrap;
 }
 
-.App-link {
-  color: #61dafb;
+.filter {
+  position: relative;
+  z-index: 2;
+  width: 90%;
+  display: flex;
+  align-items: center;
+  margin-bottom: 40px;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.filter select,input{
+  margin-right: 10px;
+}
+.filter select{
+  outline: none;
+  border: 1px solid var(--h1-color);
+  background-color: var(--dark);
+  border-radius: 20.5px;
+  width: 130px;
+  font-size: var(--lg);
+  text-align-last: center;
+  height: 35px;
+  color:var(--h1-color);
+  padding-right:5px;
+}
+.filter input{
+  outline: none;
+  border: 1px solid var(--h1-color);
+  background-color: var(--dark);
+  border-radius: 20.5px;
+  -webkit-appearance: none;
+  appearance: none;
+  font-size: var(--lg);
+  height: 30px;
+  color:white;
+  padding-left:10px;
+}
+.filter input::placeholder{
+  color:white;
+}
+.filter p{
+  color: white;
+  font-size: var(--lg);
+  font-weight: bold;
+  border-right: 1px solid white;
+  height: 100%;
+  padding: 10px;
+  margin-right: 10px;
+}
+.loading{
+  position: relative;
+  z-index: 2;
+  width: 100px;
+  margin-bottom: 20px;
 }
