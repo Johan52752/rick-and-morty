@@ -13,7 +13,6 @@ export const useGetData=(endpoint="character")=>{
         try{
             let response=await getData(`https://rickandmortyapi.com/api/${endpoint}`);
             let results=response.results;
-            console.log(results);
             while(response.info.next!==null){
                 response=await getData(response.info.next);
                 results.push(...response.results);

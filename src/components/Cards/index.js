@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useGetData } from "../../hooks/useData/index.js";
 import { Filter } from "../Filter/index.js";
 
@@ -11,8 +11,6 @@ export const Cards = () => {
   const { data, loading } = useGetData(
     `character/?name=${name}&status=${status}&species=${species}&type=${type}&gender=${gender}`
   );
-  console.log(loading);
-  console.log(status);
   return (
     <section className="cards">
       <h2>Filter characters</h2>
@@ -30,7 +28,7 @@ export const Cards = () => {
               ):(
             data? data.map((item) => {
                 return (
-                  <div className="cards-render">
+                  <div key={item.id} className="cards-render">
                     <img className="img-card" src={item.image} alt="" />
                     <h3>{item.name}</h3>
                     <div className="cards-options">
@@ -46,7 +44,7 @@ export const Cards = () => {
                       </p>
                       <p className={"gender " + item.gender}>{item.gender}</p>
                     </div>
-                    <a href="">
+                    <a href="/">
                       {" "}
                       <span>Origin: </span>
                       {item.origin.name}
